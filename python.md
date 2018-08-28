@@ -1,4 +1,31 @@
-# 内存管理
+# python
+
+## cProfile
+
+## 类变量和实例变量
+
+```python
+class Person():
+    name = "jack"
+    nicname = []
+
+p1 = Person()
+p2 = Person()
+p1.name = "liekkas"
+
+print p1.name       # liekkas
+print p2.name       # jack
+print Person.name   # jace
+
+p1.nicname.append('lina')
+print p1.nickname          # ['lina']
+print p2.nickname          # ['lina']
+print Person.nickname      # ['lina']
+```
+
+性能分析工具
+
+## 内存管理
 
 - 引用计数器，用 sys.getrefcount() 可以查看引用次数；
 - 引用为 0， 会被 gc 回收；
@@ -15,12 +42,12 @@ python中的内存管理机制都有两套实现
 - 一套是针对小对象，就是大小小于256bits时，pymalloc会在内存池中申请内存空间；
 - 当大于256bits，则会直接执行 new/malloc 的行为来申请新的内存空间。
 
-## 引用减少
+### 引用减少
 
 - 重新赋值
 - del
 
-# 深浅拷贝
+### 深浅拷贝
 
 # I/O 复用
 
