@@ -1,6 +1,6 @@
 # python
 
-## cProfile
+
 
 ## 类变量和实例变量
 
@@ -22,6 +22,8 @@ print p1.nickname          # ['lina']
 print p2.nickname          # ['lina']
 print Person.nickname      # ['lina']
 ```
+
+## cProfile
 
 性能分析工具
 
