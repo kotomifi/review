@@ -28,16 +28,16 @@
  
  三次握手
  
- 1. client 发送 SYN, seq=x; (SYN_SENT, connect())
- 2. server 回复 SYN, ack=x+1, seq=Y (SYN_RCVD)
- 3. client 回复 ack=y+x (ESTABLISHED)
+ 1. 客户端通过向服务器端发送一个SYN来创建一个主动打开，作为三次握手的一部分。客户端把这段连接的序号设定为随机数 A。
+ 2. 服务器端应当为一个合法的SYN回送一个SYN/ACK。ACK 的确认码应为 A+1，SYN/ACK 包本身又有一个随机序号 B。
+ 3. 最后，客户端再发送一个ACK。当服务端受到这个ACK的时候，就完成了三路握手，并进入了连接创建状态。此时包序号被设定为收到的确认号 A+1，而响应则为 B+1。
  
  四次挥手
  
- 1. client 发送 FIN seq=x+2 ACK=y+1 (FIN_WAIT_1)
- 2. server 回复 ACK x+3 (CLOSE_WAIT)
- 3. server 发送 FIN seq=y+1 (FIN_WAIT_2)
- 4. client 回复 ACK=y+2 (TIME_WAIT)
+ 1. 客户端发送一个数据分段, 其中的 FIN 标记设置为1. 客户端进入 FIN-WAIT 状态. 该状态下客户端只接收数据, 不再发送数据.
+ 2. 服务器接收到带有 FIN = 1 的数据分段, 发送带有 ACK = 1 的剩余数据分段, 确认收到客户端发来的 FIN 信息.
+ 3. 服务器等到所有数据传输结束, 向客户端发送一个带有 FIN = 1 的数据分段, 并进入 CLOSE-WAIT 状态, 等待客户端发来带有 ACK = 1 的确认报文.
+ 4. 客户端收到服务器发来带有 FIN = 1 的报文, 返回 ACK = 1 的报文确认, 为了防止服务器端未收到需要重发, 进入 TIME-WAIT 状态. 服务器接收到报文后关闭连接. 客户端等待 2MSL 后未收到回复, 则认为服务器成功关闭, 客户端关闭连接.
 
 tcp 和 udp 区别
 
