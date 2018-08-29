@@ -57,6 +57,11 @@ print p1.nickname          # ['lina']
 print p2.nickname          # ['lina']
 print Person.nickname      # ['lina']
 ```
+## metaclass
+
+类也是对象，可以赋值给变量，可以拷贝，可以增加属性，可以作为函数参数， 用元类创建类， type 创建， 元类主要在类工厂。
+
+如果在类中使用 __metaclass__， 则用 __metaclass__ 创建类本身。
 
 ## cProfile
 
