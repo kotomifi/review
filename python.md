@@ -17,6 +17,23 @@
     - 用户调度
     - 有寄存器上下文和栈
     - 无需加锁，速度快
+    
+ tcp 三次握手，四次挥手
+ 
+ ![](https://coolshell.cn/wp-content/uploads/2014/05/tcp_open_close.jpg)
+ 
+ 三次握手
+ 
+ 1. client 发送 SYN, seq=x; (SYN_SENT, connect())
+ 2. server 回复 SYN, ack=x+1, seq=Y (SYN_RCVD)
+ 3. client 回复 ack=y+x (ESTABLISHED)
+ 
+ 四次挥手
+ 
+ 1. client 发送 FIN seq=x+2 ACK=y+1 (FIN_WAIT_1)
+ 2. server 回复 ACK x+3 (CLOSE_WAIT)
+ 3. server 发送 FIN seq=y+1 (FIN_WAIT_2)
+ 4. client 回复 ACK=y+2 (TIME_WAIT)
 
 # python
 
