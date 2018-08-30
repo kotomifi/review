@@ -101,6 +101,10 @@ print Person.nickname      # ['lina']
 
 如果在类中使用 __metaclass__， 则用 __metaclass__ 创建类本身。
 
+## 高阶函数
+
+接受函数为参数或者把函数作为结果返回的函数就是高阶函数。
+
 ## cProfile
 
 性能分析工具
