@@ -95,6 +95,12 @@ print Person.nickname      # ['lina']
 
 上下文寄存器
 
+## 三目操作符
+
+```python
+value1 if condition else value2
+````
+
 ## metaclass
 
 类也是对象，可以赋值给变量，可以拷贝，可以增加属性，可以作为函数参数， 用元类创建类， type 创建， 元类主要在类工厂。
